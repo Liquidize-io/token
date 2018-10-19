@@ -29,22 +29,11 @@ contract CompliantToken is HasRegistry, StandardToken {
     _;
   }
 
-  modifier onlyIfPassedKYC_AML(address addr) {
-    require(
-      registry().hasAttribute(
-        addr,
-        Attribute.AttributeType.HAS_PASSED_KYC_AML
-      )
-    );
-    _;
-  }
-
   function _mint(
     address to,
     uint256 value
   )
     internal
-    onlyIfPassedKYC_AML(to)
     onlyIfNotBlacklisted(to)
   {
     super._mint(to, value);
@@ -59,7 +48,6 @@ contract CompliantToken is HasRegistry, StandardToken {
     internal
     onlyIfNotBlacklisted(from)
     onlyIfNotBlacklisted(to)
-    onlyIfPassedKYC_AML(to)
   {
     super._transfer(from, to, value);
   }
