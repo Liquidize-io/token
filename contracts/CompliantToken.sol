@@ -1,10 +1,10 @@
 pragma solidity ^0.4.24;
 
-import "./base/StandardToken.sol";
+import "./base/MintableToken.sol";
 import "./registry/HasRegistry.sol";
 
 
-contract CompliantToken is HasRegistry, StandardToken {
+contract CompliantToken is HasRegistry, MintableToken {
   // Addresses can also be blacklisted, preventing them from sending or receiving
   // Liquidize tokens. This can be used to prevent the use of LQD by bad actors in
   // accordance with law enforcement.

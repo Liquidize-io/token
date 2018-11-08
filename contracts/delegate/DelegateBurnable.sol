@@ -65,4 +65,8 @@ contract DelegateBurnable {
     string note
   )
     public;
+
+  function delegateGetTheNumberOfHolders() public view returns (uint256);
+
+  function delegateGetHolder(uint256 _index) public view returns (address);
 }

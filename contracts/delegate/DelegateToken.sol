@@ -137,4 +137,12 @@ contract DelegateToken is DelegateBurnable, BurnableToken {
   {
     _burn(origSender, value , note);
   }
+
+  function delegateGetTheNumberOfHolders() public view returns (uint256) {
+    return getTheNumberOfHolders();
+  }
+
+  function delegateGetHolder(uint256 _index) public view returns (address) {
+    return getHolder(_index);
+  }
 }
